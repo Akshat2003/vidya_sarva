@@ -16,8 +16,8 @@ def parse_tokens_meanings(input_str):
     return tokens_meanings
 
 # Modify these file names if you wish to use a different chapter.
-shlokas_file = "chapter18.txt"     # File with transliterated shlokas (one per line)
-meanings_file = "chapter18_meaning.txt"   # File with corresponding tokens-meanings (one per line)
+shlokas_file = "chapter1_transliteration.txt"     # File with transliterated shlokas (one per line)
+meanings_file = "chapter1_meaning.txt"   # File with corresponding tokens-meanings (one per line)
 corpus_file = "sanskrit_corpus.json"
 
 # Load existing corpus from JSON if it exists
