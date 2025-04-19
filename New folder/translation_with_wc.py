@@ -1,0 +1,84 @@
+import google.generativeai as genai
+
+
+def wc(a,b):
+    if len(b)>len(a):b,a=a,b
+    for i in range(len(a)):
+        if b[:len(a)-i] in a:
+            # print(len(b[:len(a)-i]))
+            return((len(b[:len(a)-i])/len(a))*100)
+            # if (len(b[:len(a)-i])/len(a))*100 >= 80:
+            #     return True
+            #     # return(b[:len(a)-i])
+    return False
+
+def dictcom(dict1,comparable_word):
+    for i in dict1:
+          if wc(i,comparable_word) >= 80:
+               return [i,comparable_word]
+    return False
+
+
+
+text = """dhṛtarāṣṭra—King Dhṛtarāṣṭra; uvāca—said; dharma-kṣetre—in the place of pilgrimage; kuru-kṣetre—in the place named Kurukṣetra; samavetā— assembled; yuyutsavaḥ—desiring to fight; māmakāḥ—my party (sons); pāṇḍavā—the sons of Pāṇḍu; ca—and; eva—certainly; kim— what; akurvata— did they do; sañjaya—O Sañjaya; sañjaya—Sañjaya; uvāca—said; dṛṣṭvā—after seeing; tu—but; pāṇḍavaanīkam—the soldiers of the Pāṇḍavas; vyūḍham—arranged in military phalanx; duryodhana—King Duryodhana; tadā—at that time; ācāryam— the teacher; upasaṅgamya—approaching nearby; rājā—the king; vacanam— words; abravīt—spoke; paśya—behold; etām—this; pāṇḍu-putrāṇām—of the sons of Pāṇḍu; ācārya—O teacher; mahatīm—great; camūm—military force; vyūḍhām —arranged; drupada-putreṇa—by the son of Drupada; tava—your; śiṣyeṇa — disciple; dhīmatā—very intelligent; atra—here; śūrā—heroes; maheṣvāsā—mighty bowmen; bhīma-arjuna — Bhīma and Arjuna; samā—equal; yudhi—in the fight; yuyudhāna— Yuyudhāna; virāṭa—Virāṭa; ca—also; drupada—Drupada; ca—also; mahāratha—great fighter; dhṛṣṭaketu—Dhṛṣṭaketu; cekitāna—Cekitāna; kāśirāja—Kaśirāja; ca — also; vīryavān—very powerful; purujit—Purujit; kuntibhoja —Kuntibhoja; ca—and; śaibya—Śaibya; ca—and; nara-puṅgava—heroes in human society; yudhāmanyu—Yudhāmanyu; ca—and; vikrānta—mighty; uttamaujā —Uttamaujā; ca—and; vīryavān—very powerful; saubhadra—the son of Subhadrā; draupadeyā—the sons of Draupadī; ca—and; sarve—all; eva— certainly; mahā-rathā—great chariot fighters; asmākam—our; tu—but; viśiṣṭā—especially powerful; ye—those; tān— them; nibodha—just take note, be informed; dvijottama—the best of the brāhmaṇas; nāyakā—captains; mama—my; sainyasya—of the soldiers; saṁjñā-artham—for information; tān—them; bravīmi—I am speaking; te— your; bhavān—yourself; bhīṣma—Grandfather Bhīṣma; ca—also; karṇa— Karṇa; ca—and; kṛpa—Kṛpa; ca—and; samitiñjaya—always victorious in battle; aśvatthāmā—Aśvatthāmā; vikarṇa—Vikarṇa; ca—as well as; saumadatti—the son of Somadatta; tathā—and as; eva—certainly; ca—and; anye—many others; ca—also; bahava—in great numbers; śūrā—heroes; mad-arthe—for my sake; tyakta-jīvitā—prepared to risk life; nānā—many; śastra—weapons; praharaṇā—equipped with; sarve—all of them; yuddha— battle; viśāradā—experienced in military science; aparyāptam—immeasurable; tat—that; asmākam—of ours; balam— strength; bhīṣma—by Grandfather Bhīṣma; abhirakṣitam—perfectly protected; paryāptam—limited; tu—but; idam—all these; eteṣām—of the Pāṇḍavas; balam—strength; bhīma—by Bhīma; abhirakṣitam—carefully protected; ayaneṣu—in the strategic points; ca—also; sarveṣu—everywhere; yathābhāgam—as they are differently arranged; avasthitā—situated; bhīṣmam— unto Grandfather Bhīṣma; eva—certainly; abhirakṣantu —support may be given; bhavanta—all of you; sarve—respectively; eva —certainly; hi—and exactly; tasya—his; sañjanayan—increasing; harṣam—cheerfulness; kuruvṛddha —the grandsire of the Kuru dynasty (Bhīṣma); pitāmaha—the grandfather; siṁha-nādam—roaring sound, like a lion; vinadya—vibrating; uccai —very loudly; śaṅkham—conchshell; dadhmau—blew; pratāpavān —the valiant; tata—thereafter; śaṅkhā—conchshells; ca—also; bherya—bugles; ca — and; paṇava-ānaka—trumpets and drums; go-mukhā—horns; sahasā —all of a sudden; eva—certainly; abhyahanyanta—being simultaneously sounded; sa—that; śabda—combined sound; tumula—tumultuous; abhavat—became; tata—thereafter; śvetai—by white; hayai—horses; yukte—being yoked with; mahati—in the great; syandane—chariot; sthitau—so situated; mādhava—Kṛṣṇa (the husband of the goddess of fortune); pāṇḍava— Arjuna (the son of Pāṇḍu); ca—also; eva—certainly; divyau —transcendental; śaṅkhau—conchshells; pradadhmatu—sounded; pāñcajanyam—the conchshell named Pāñcajanya; hṛṣīkeśa—Hṛṣīkeśa (Kṛṣṇa, the Lord who directs the senses of the devotees); devadattam—the conchshell named Devadatta; dhanañjaya—Dhanañjaya (Arjuna, the winner of wealth); pauṇḍram—the conch named Pauṇḍram; dadhmau— blew; mahā-śaṅkham—the terrific conchshell; bhīma-karmā—one who performs Herculean tasks; vṛkodara—the voracious eater (Bhīma); anantavijayam—the conch named Anantavijaya; rājā—the king; kuntīputra—the son of Kuntī; yudhiṣṭhira—Yudhiṣṭhira; nakula—Nakula; sahadeva—Sahadeva; ca—and; sughoṣa-maṇipuṣpakau—the conches named Sughoṣa and Maṇipuṣpaka; kāśya—the King of Kāśī (Vārāṇasī); ca —and; parameṣvāsa—the great archer; śikhaṇḍī—Śikhaṇḍī; ca—also; mahā-ratha—one who can fight alone against thousands; dhṛṣṭadyumna — Dhṛṣṭadyumna (the son of King Drupada); virāṭa—Virāṭa (the prince who gave shelter to the Pāṇḍavas while they were in disguise); ca—also; sātyaki —Sātyaki (the same as Yuyudhāna, the charioteer of Lord Kṛṣṇa); ca—and; aparājita—who were never vanquished before; drupada— Drupada, the King of Pāñcāla; draupadeyā—the sons of Draupadī; ca— also; sarvaśa— all; pṛthivī-pate—O King; saubhadra—the son of Subhadrā (Abhimanyu); ca—also; mahā-bāhu—greatly armed; śaṅkhān— conchshells; dadhmu— blew; pṛthak pṛthak—each separately; sa—that; ghoṣa—vibration; dhārtarāṣṭrāṇām—of the sons of Dhṛtarāṣṭra; hṛdayāni—hearts; vyadārayat—shattered; nabha—the sky; ca —also; pṛthivīm—the surface of the earth; ca—also; eva—certainly; tumula — uproarious; abhyanunādayan—by resounding; atha—thereupon; vyavasthitān—situated; dṛṣṭvā—looking on; dhārtarāṣṭrān—the sons of Dhṛtarāṣṭra; kapi-dhvaja—one whose flag is marked with Hanumān; pravṛtte—while about to be engaged; śastrasampāte—the arrows released; dhanu—bow; udyamya—after taking up; pāṇḍava—the son of Pāṇḍu (Arjuna); hṛṣīkeśam—unto Lord Kṛṣṇa; tadā —at that time; vākyam—words; idam—these; āha—said; mahī-pate—O King; arjuna—Arjuna; uvāca—said; senayo—of the armies; ubhayo—of both the parties; madhye—in between them; ratham—the chariot; sthāpaya — please keep; me—my; acyuta—O infallible one; yāvat—as long as; etān— all these; nirīkṣe—may look; aham—I; yoddhu-kāmān—desiring to fight; avasthitān—arrayed on the battlefield; kai—with whom; mayā—by me; saha—with; yoddhavyam—to fight with; asmin—in this; raṇa—strife; samudyame—in the attempt; yotsyamānān—those who will be fighting; avekṣe—let me see; aham—I; ye—who; ete—those; atra—here; samāgatā—assembled; dhārtarāṣṭrasya — the son of Dhṛtarāṣṭra; durbuddhe—evil-minded; yuddhe—in the fight; priya—well; cikīrṣava—wishing; sañjaya—Sañjaya; uvāca—said; evam—thus; ukta—addressed; hṛṣīkeśa —Lord Kṛṣṇa; guḍākeśena—by Arjuna; bhārata—O descendant of Bharata; senayo—of armies; ubhayo—of both; madhye—in the midst of; sthāpayitvā —by placing; rathottamam—the finest chariot; bhīṣma—Grandfather Bhīṣma; droṇa—the teacher Droṇa; pramukhata — in the front of; sarveṣām—all; ca—also; mahīkṣitām—chiefs of the world; uvāca—said; pārtha—O Pārtha (son of Pṛthā); paśya—just behold; etān—all of them; samavetān—assembled; kurūn—all the members of the Kuru dynasty; iti—thus; tatra—there; apaśyat—he could see; sthitān—standing; pārtha —Arjuna; pitṝn—fathers; atha—also; pitāmahān—grandfathers; ācāryān —teachers; mātulān—maternal uncles; bhrātṝn—brothers; putrān—sons; pautrān—grandsons; sakhīn—friends; tathā—too, śvaśurān—fathers-in-law; suhṛda—wellwishers; ca—also; eva—certainly; senayo—of the armies; ubhayo—of both parties; api—including; tān—all of them; samīkṣya—after seeing; sa—he; kaunteya—the son of Kuntī; sarvān—all kinds of; bandhūn—relatives; avasthitān—situated; kṛpayā—by compassion; parayā—of a high grade; āviṣṭa—overwhelmed by; viṣīdan—while lamenting; idam—thus; abravīt—spoke; arjuna—Arjuna; uvāca—said; dṛṣṭvā—after seeing; imam—all these; svajanam—kinsmen; kṛṣṇa—O Kṛṣṇa; yuyutsum—all in fighting spirit; samupasthitam—all present; sīdanti—quivering; mama—my; gātrāṇi —limbs of the body; mukham—mouth; ca—also; pariśuṣyati—drying up; vepathu—trembling of the body; ca—also; śarīre—on the body; me —my; roma-harṣa—standing of hair on end; ca—also; jāyate—is taking place; gāṇḍīvam—the bow of Arjuna; sraṁsate—is slipping; hastāt—from the hands; tvak—skin; ca—also; eva—certainly; paridahyate—burning; na—nor; ca—also; śaknomi—am I able; avasthātum—to stay; bhramati— forgetting; iva—as; ca—and; me—my; mana—mind; nimittāni—causes; ca —also; paśyāmi—I foresee; viparītāni—just the opposite; keśava—O killer of the demon Keśī (Kṛṣṇa); na—nor; ca—also; śreya—good; anupaśyāmi—do I foresee; hatvā—by killing; svajanam—own kinsmen; āhave—in the fight; na—nor; kāṅkṣe—do I desire; vijayam—victory; kṛṣṇa—O Kṛṣṇa; na—nor; ca—also; rājyam —kingdom; sukhāni—happiness thereof; ca—also; kim—what use; na—to us; rājyena—is the kingdom; govinda—O Kṛṣṇa; kim—what; bhogai—enjoyment; jīvitena—by living; vā—either; yeṣām —for whom; arthe—for the matter of; kāṅkṣitam—desired; na—our; rājyam—kingdom; bhogā—material enjoyment; sukhāni—all happiness; ca —also; te—all of them; ime—these; avasthitā—situated; yuddhe—in this battlefield; prāṇān—lives; tyaktvā—giving up; dhanāni—riches; ca—also; ācāryā—teachers; pitara—fathers; putrā—sons; tathā—as well as; eva— certainly; ca—also; pitāmahā—grandfathers; mātulā—maternal uncles; śvaśurā—fathers-in-law; pautrā—grandsons; śyālā—brothers-in-law; sambandhina—relatives; tathā—as well as; etān—all these; na—never; hantum— for killing; icchāmi—do I wish; ghnata—being killed; api —even; madhusūdana—O killer of the demon Madhu (Kṛṣṇa); api—even if; trailokya—of the three worlds; rājyasya—of the kingdoms; heto—in exchange; kim—what to speak of; nu—only; mahī-kṛte—for the sake of earth; nihatya—by killing; dhārtarāṣṭrān—the sons of Dhṛtarāṣṭra; na —our; kā—what; prīti— pleasure; syāt—will there be; janārdana—O maintainer of all living entities; pāpam—vices; eva—certainly; āśrayet—must take upon; asmān—us; hatvā —by killing; etān—all these; ātatāyina—aggressors; tasmāt —therefore; na— never; arhā—deserving; vayam—us; hantum—to kill; dhārtarāṣṭrān—the sons of Dhṛtarāṣṭra; svabāndhavān—along with friends; svajanam—kinsmen; hi—certainly; katham—how; hatvā—by killing; sukhina—happy; syāma— become; mādhava—O Kṛṣṇa, husband of the goddess of fortune; yadi—if; api—certainly; ete—they; na—do not; paśyanti—see; lobha— greed; upahata—overpowered; cetasa—the hearts; kula-kṣaya—in killing the family; kṛtam—done; doṣam—fault; mitra-drohe—quarreling with friends; ca—also; pātakam—sinful reactions; katham—why; na—shall not; jñeyam— know this; asmābhi—by us; pāpāt—from sins; asmāt—ourselves; nivartitum —to cease; kula-kṣaya—the destruction of a dynasty; kṛtam—by so doing; doṣam—crime; prapaśyadbhi—by those who can see; janārdana —O Kṛṣṇa; kula-kṣaye—in destroying the family; praṇaśyanti—becomes vanquished; kula-dharmā—the family traditions; sanātanā—eternal; dharme—in religion; naṣṭe—being destroyed; kulam—family; kṛtsnam —wholesale; adharma —irreligious; abhibhavati—transforms; uta—it is said; adharma—irreligion; abhibhavāt—having been predominant; kṛṣṇa— O Kṛṣṇa; praduṣyanti—become polluted; kula-striya—family ladies; strīṣu — of the womanhood; duṣṭāsu—being so polluted; vārṣṇeya—O descendant of Vṛṣṇi; jāyate—it so becomes; varṇa-saṅkara—unwanted progeny; saṅkara—such unwanted children; narakāya—for hellish life; eva— certainly; kula-ghnānām—of those who are killers of the family; kulasya— of the family; ca—also; patanti—fall down; pitara—forefathers; hi— certainly; eṣām—of them; lupta—stopped; piṇḍa—offerings; udaka—water; kriyā— performance; doṣai—by such faults; etai—all these; kula-ghnānām—of the destroyer of a family; varṇa-saṅkara—unwanted children; kārakai—by the doers; utsādyante—causes devastation; jāti-dharmā—community project; kuladharmā—family tradition; ca—also; śāśvatā—eternal; utsanna—spoiled; kula-dharmāṇām—of those who have the family traditions; manuṣyāṇām—of such men; janārdana—O Kṛṣṇa; narake—in hell; niyatam—always; vāsa—residence; bhavati—it so becomes; iti—thus; anuśuśruma—I have heard by disciplic succession; aha—alas; bata—how strange it is; mahat—great; pāpam—sins; kartum — to perform; vyavasitā—decided; vayam—we; yat—so that; rājya —kingdom; sukha-lobhena—driven by greed for royal happiness; hantum —to kill; svajanam—kinsmen; udyatā—trying for; yadi—even if; mām—unto me; apratīkāram—without being resistant; aśastram—without being fully equipped; śastra-pāṇaya—those with weapons in hand; dhārtarāṣṭrā—the sons of Dhṛtarāṣṭra; raṇe—in the battlefield; hanyu—may kill; tat—that; me—mine; kṣemataram—better; bhavet— become; sañjaya—Sañjaya; uvāca—said; evam—thus; uktvā—saying; arjuna— Arjuna; saṅkhye—in the battlefield; ratha—chariot; upastha—situated on; upāviśat—sat down again; visṛjya—keeping aside; sa-śaram—along with arrows; cāpam—the bow; śoka—lamentation; saṁvigna—distressed; mānasa—within the mind"""
+
+text_sample = """dhṛtarāṣṭra—King Dhṛtarāṣṭra; uvāca—said; dharma-kṣetre—in the place of pilgrimage; kuru-kṣetre—in the place named Kurukṣetra; samavetā— assembled; yuyutsava—desiring to fight; māmakā—my party (sons); pāṇḍavā—the sons of Pāṇḍu; ca—and; eva—certainly; kim— what; akurvata— did they do; sañjaya—O Sañjaya; sañjaya—Sañjaya; uvāca—said; dṛṣṭvā—after seeing; tu—but; pāṇḍavaanīkam—the soldiers of the Pāṇḍavas; vyūḍham—arranged in military phalanx; duryodhana—King Duryodhana; tadā—at that time; ācāryam— the teacher; upasaṅgamya—approaching nearby; rājā—the king; vacanam— words; abravīt—spoke"""
+
+#print(text_sample.split("; "))
+tokens = text.split("; ")
+token_dict = {}
+for i in tokens:
+    a = i.split("—")
+    # if len(a)==1:print(a)
+    # print(a)
+    # print(a[0].strip())
+    # print(a[1].strip())
+    token_dict[a[0].strip()] = a[1].strip()
+
+# print(token_dict)
+# print(len(tokens))
+# print(len(token_dict))
+# print(f"Repetitive tokens: {len(tokens)-len(token_dict)}")
+
+# shloka = "dhṛtarāṣṭra uvāca dharma-kṣetre kuru-kṣetre samavetā yuyutsava māmakā pāṇḍavāś caiva kim akurvata sañjaya"
+shloka = """lambodaraṃ mahākāyaṃ lambauṣṭhaṃ gajakarṇakam"""
+shloka_tokens = shloka.split()
+print(shloka_tokens)
+hard_translation = []
+hard_trans_sentence = ""
+for i in shloka_tokens:
+    try:
+        hard_translation.append(token_dict[i])
+        hard_trans_sentence+=token_dict[i]
+        hard_trans_sentence+=" "
+        # print(token_dict[i])
+    except:
+        matchornot = dictcom(token_dict,i)
+        # print(matchornot)
+        if matchornot: 
+            token_dict[matchornot[1]] = token_dict[matchornot[0]]
+            hard_trans_sentence+=token_dict[matchornot[0]]
+        else:
+            hard_translation.append(i)
+            hard_trans_sentence+=i
+            hard_trans_sentence+=" "
+            print("Term not found",i)
+print(hard_trans_sentence)
+
+
+genai.configure(api_key='AIzaSyBxYuJ5wtcsaDaTrNj5KnyzlsxAHRTYr-M')
+
+def ask_gemini(prompt):
+    try:
+        model = genai.GenerativeModel('gemini-1.5-pro-latest')
+        
+        response = model.generate_content(prompt)
+        
+        return response.text
+    except Exception as e:
+        return f"An error occurred: {e}"
+
+prompt = hard_trans_sentence
+response = ask_gemini(prompt)
+print("Meaningful Translation:")
+print(response)
