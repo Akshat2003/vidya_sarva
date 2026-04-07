@@ -479,7 +479,7 @@ def main():
                     # Apply styling
                     st.subheader("Analysis Results")
                     
-                    styled_df = results_df.style.applymap(
+                    styled_df = results_df.style.map(
                         highlight_match_type, 
                         subset=['match_type']
                     )
