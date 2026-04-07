@@ -119,7 +119,7 @@ Maintain the same meaning but make it flow naturally in English. Don't be overly
 """
 
         # Updated Gemini API endpoint for gemini-1.5-pro
-        url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent"
+        url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
         
         # Request parameters
         params = {
@@ -191,7 +191,7 @@ def main():
     
     # Initialize session state variables if they don't exist
     if 'gemini_api_key' not in st.session_state:
-        st.session_state.gemini_api_key = "AIzaSyD3yVMweiycLmG6YUQnqbnRwu0OUgi9ycg"  # Updated API key
+        st.session_state.gemini_api_key = os.getenv("GEMINI_API_KEY", "")
     
     # Sidebar for configuration
     st.sidebar.title("Configuration")
